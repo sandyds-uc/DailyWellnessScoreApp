@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DailyWellnessScoreApp.DailyWellnessScore"
+             Title="DailyWellnessScore">
+    <Grid RowDefinitions="Auto,8,Auto,8,Auto,Auto,Auto,Auto,Auto,Auto,Auto,8,Auto,Auto,Auto"
+          ColumnDefinitions="*,*"
+          Margin="16"
+          RowSpacing="0"
+          ColumnSpacing="20" >
+
+<!-- App Title -->
+        <Label Text="Daily Wellness Score"
+               Grid.Row="0"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               FontSize="Large"
+               TextColor="#0a0e20" />
+
+<!-- Gender Image Choices -->
+        <Frame Grid.Row="2"
+               Grid.Column="0"
+               Padding="8"
+               CornerRadius="14"
+               HasShadow="True"
+               BorderColor="#0a0e29"
+               x:Name="FrameMale">
+            <VerticalStackLayout Spacing="10">
+                <Image Source="male"
+                       HeightRequest="40" />
+                <Label Text="Male"
+                       HorizontalOptions="Center"
+                       FontSize="Body" />
+            </VerticalStackLayout>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer x:Name="TapMale"
+                                      Tapped="TapMale_Tapped" />
+            </Frame.GestureRecognizers>
+        </Frame>
+        <Frame Grid.Row="2"
+               Grid.Column="1"
+               Padding="8"
+               CornerRadius="14"
+               HasShadow="True"
+               BorderColor="#0a0e29"
+               x:Name="FrameFemale">
+            <VerticalStackLayout Spacing="10">
+                <Image Source="female"
+                       HeightRequest="40" />
+                <Label Text="Female"
+                       HorizontalOptions="Center"
+                       FontSize="Body" />
+            </VerticalStackLayout>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer x:Name="TapFemale"
+                                      Tapped="TapFemale_Tapped" />
+            </Frame.GestureRecognizers>
+        </Frame>
+
+<!-- Sleep Hours -->
+        <Label Text="Sleep Hours (Last Night)"
+               HorizontalOptions="Center"
+               Grid.Row="4"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               FontSize="Body" />
+        <Slider ThumbColor="DarkBlue"
+                x:Name="SliderSleep"
+                Grid.Row="5"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Minimum="0"
+                Maximum="12"
+                Value="7" />
+        <Label HorizontalOptions="Center"
+               Grid.Row="6"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               FontSize="Medium"
+               FontAttributes="Bold"
+               Text="{Binding Source={x:Reference SliderSleep}, Path=Value, StringFormat='{0:F1} h'}"
+               x:Name="LblSleep" />
+
+<!-- Stress Level -->
+        <Label Text="Stress Level"
+               HorizontalOptions="Center"
+               Grid.Row="7"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               FontSize="Body" />
+        <Slider ThumbColor="DarkBlue"
+                x:Name="SliderStress"
+                Grid.Row="8"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Minimum="1"
+                Maximum="10"
+                Value="4" />
+        <Label HorizontalOptions="Center"
+               Grid.Row="9"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               FontSize="Medium"
+               FontAttributes="Bold"
+               Text="{Binding Source={x:Reference SliderStress}, Path=Value, StringFormat='{0:F0}'}"
+               x:Name="LblStress" />
+
+<!-- Activity Minutes -->
+        <Label Text="Activity Minutes (Today)"
+               HorizontalOptions="Center"
+               Grid.Row="10"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               FontSize="Body" />
+        <Slider ThumbColor="DarkBlue"
+                x:Name="SliderActivity"
+                Grid.Row="11"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Minimum="0"
+                Maximum="120"
+                Value="30" />
+        <Label HorizontalOptions="Center"
+               Grid.Row="12"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               Margin="0,0,0,0"
+               FontSize="Medium"
+               FontAttributes="Bold"
+               Text="{Binding Source={x:Reference SliderActivity}, Path=Value, StringFormat='{0:F0}'}"
+               x:Name="LblActivity" />
+
+<!-- Results Card-->
+        <Frame Grid.Row="13"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               Padding="6"
+               Margin="4"
+               CornerRadius="14"
+               BorderColor="LightBlue"
+               BackgroundColor="LightGray" >
+            <VerticalStackLayout Spacing="4">
+                <Label x:Name="LblScore"
+                        Text="Results"
+                        FontSize="48"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center" />
+                <Label x:Name="LblStatus"
+                        Text=""
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center" />
+                <Label x:Name="LblRecommendation"
+                        Text=""
+                        FontSize="16"
+                        LineBreakMode="WordWrap" />
+            </VerticalStackLayout>
+        </Frame>
+        
+<!-- Submit Button -->
+        <Button Grid.Row="14"
+                Grid.Column="0"
+                Margin="10"
+                Grid.ColumnSpan="2"
+                Text="Submit"
+                FontSize="Medium"
+                Padding="8"
+                FontAttributes="Bold"
+                VerticalOptions="End"
+                HeightRequest="55"
+                CornerRadius="15"
+                BackgroundColor="#0a0e29"
+                x:Name="BtnTap"
+                Clicked="Btn_Clicked" />
+    </Grid>
+</ContentPage>
