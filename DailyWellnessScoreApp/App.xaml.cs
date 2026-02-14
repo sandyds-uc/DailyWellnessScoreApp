@@ -6,7 +6,7 @@
         {
             InitializeComponent();
 
-            MainPage = new DailyWellnessScore();
+            MainPage = new NavigationPage( new DailyWellnessScore());
         }
     }
 }

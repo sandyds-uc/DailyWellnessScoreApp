@@ -2,12 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DailyWellnessScoreApp.DailyWellnessScore"
-             Title="DailyWellnessScore">
-    <Grid RowDefinitions="Auto,8,Auto,8,Auto,Auto,Auto,Auto,Auto,Auto,Auto,8,Auto,Auto,Auto"
+             Title="DailyWellnessScore"
+             Padding="0,0,0,0"
+             NavigationPage.HasNavigationBar="False">
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,8,*,Auto"
           ColumnDefinitions="*,*"
-          Margin="16"
-          RowSpacing="0"
-          ColumnSpacing="20" >
+          Margin="12"
+          RowSpacing="10"
+          ColumnSpacing="16" >
 
 <!-- App Title -->
         <Label Text="Daily Wellness Score"
@@ -15,19 +17,20 @@
                Grid.Column="0"
                Grid.ColumnSpan="2"
                FontSize="Large"
+               Margin="16"
                TextColor="#0a0e20" />
 
 <!-- Gender Image Choices -->
-        <Frame Grid.Row="2"
+        <Frame Grid.Row="1"
                Grid.Column="0"
-               Padding="8"
+               Padding="10"
                CornerRadius="14"
                HasShadow="True"
                BorderColor="#0a0e29"
                x:Name="FrameMale">
             <VerticalStackLayout Spacing="10">
                 <Image Source="male"
-                       HeightRequest="40" />
+                       HeightRequest="50" />
                 <Label Text="Male"
                        HorizontalOptions="Center"
                        FontSize="Body" />
@@ -37,16 +40,16 @@
                                       Tapped="TapMale_Tapped" />
             </Frame.GestureRecognizers>
         </Frame>
-        <Frame Grid.Row="2"
+        <Frame Grid.Row="1"
                Grid.Column="1"
-               Padding="8"
+               Padding="10"
                CornerRadius="14"
                HasShadow="True"
                BorderColor="#0a0e29"
                x:Name="FrameFemale">
             <VerticalStackLayout Spacing="10">
                 <Image Source="female"
-                       HeightRequest="40" />
+                       HeightRequest="50" />
                 <Label Text="Female"
                        HorizontalOptions="Center"
                        FontSize="Body" />
@@ -60,20 +63,20 @@
 <!-- Sleep Hours -->
         <Label Text="Sleep Hours (Last Night)"
                HorizontalOptions="Center"
-               Grid.Row="4"
+               Grid.Row="2"
                Grid.Column="0"
                Grid.ColumnSpan="2"
                FontSize="Body" />
         <Slider ThumbColor="DarkBlue"
                 x:Name="SliderSleep"
-                Grid.Row="5"
+                Grid.Row="3"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 Minimum="0"
                 Maximum="12"
                 Value="7" />
         <Label HorizontalOptions="Center"
-               Grid.Row="6"
+               Grid.Row="4"
                Grid.Column="0"
                Grid.ColumnSpan="2"
                FontSize="Medium"
@@ -84,20 +87,20 @@
 <!-- Stress Level -->
         <Label Text="Stress Level"
                HorizontalOptions="Center"
-               Grid.Row="7"
+               Grid.Row="5"
                Grid.Column="0"
                Grid.ColumnSpan="2"
                FontSize="Body" />
         <Slider ThumbColor="DarkBlue"
                 x:Name="SliderStress"
-                Grid.Row="8"
+                Grid.Row="6"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
-                Minimum="1"
+                Minimum="0"
                 Maximum="10"
                 Value="4" />
         <Label HorizontalOptions="Center"
-               Grid.Row="9"
+               Grid.Row="7"
                Grid.Column="0"
                Grid.ColumnSpan="2"
                FontSize="Medium"
@@ -108,20 +111,20 @@
 <!-- Activity Minutes -->
         <Label Text="Activity Minutes (Today)"
                HorizontalOptions="Center"
-               Grid.Row="10"
+               Grid.Row="8"
                Grid.Column="0"
                Grid.ColumnSpan="2"
                FontSize="Body" />
         <Slider ThumbColor="DarkBlue"
                 x:Name="SliderActivity"
-                Grid.Row="11"
+                Grid.Row="9"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 Minimum="0"
                 Maximum="120"
                 Value="30" />
         <Label HorizontalOptions="Center"
-               Grid.Row="12"
+               Grid.Row="10"
                Grid.Column="0"
                Grid.ColumnSpan="2"
                Margin="0,0,0,0"
@@ -130,7 +133,7 @@
                Text="{Binding Source={x:Reference SliderActivity}, Path=Value, StringFormat='{0:F0}'}"
                x:Name="LblActivity" />
 
-<!-- Results Card-->
+<!-- Results Card--><!--
         <Frame Grid.Row="13"
                Grid.Column="0"
                Grid.ColumnSpan="2"
@@ -155,14 +158,14 @@
                         FontSize="16"
                         LineBreakMode="WordWrap" />
             </VerticalStackLayout>
-        </Frame>
+        </Frame>-->
         
 <!-- Submit Button -->
-        <Button Grid.Row="14"
+        <Button Grid.Row="12"
                 Grid.Column="0"
-                Margin="10"
+                Margin="10,0,10,16"
                 Grid.ColumnSpan="2"
-                Text="Submit"
+                Text="Next"
                 FontSize="Medium"
                 Padding="8"
                 FontAttributes="Bold"

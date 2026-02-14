@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DailyWellnessScoreApp.Recommendations"
+             Title="Recommendation"
+             NavigationPage.HasNavigationBar="True">
+
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,*"
+          ColumnDefinitions="*,*"
+          Margin="12"
+          RowSpacing="10"
+          ColumnSpacing="4" >
+
+        <Frame Grid.Row="0"
+               Grid.Column="0"
+               Margin="0,20,0,0"
+               Grid.ColumnSpan="2"
+               WidthRequest="260"
+               HeightRequest="360"
+               Padding="20"
+               BackgroundColor="LightCyan"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               CornerRadius="18"
+               HasShadow="True"
+               BorderColor="#2c2c2c" >
+            <VerticalStackLayout Spacing="10"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="Center" >
+                <Label Text=""
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       FontSize="22"
+                       Margin="0,10,0,0"
+                       TextColor="#1b2a6b"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       x:Name="LblChoice" />
+                <Label Text=""
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       FontSize="18"
+                       Margin="0,0,0,10"
+                       TextColor="#4a4a4a"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       x:Name="LblStatus" />
+                <BoxView HeightRequest="1"
+                         WidthRequest="240"
+                         Color="#330a0e29"
+                         Margin="0,6" />
+                <Label Text="Recommendation:"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       FontSize="Large"
+                       Margin="0,10,0,0"
+                       TextColor="#4a4a4a"
+                       HorizontalOptions="Center" />
+                <Label Text=""
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       FontSize="16"
+                       Margin="8,0,8,10"
+                       LineBreakMode="WordWrap"
+                       TextColor="#555"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"
+                       x:Name="LblRecommendation" />
+            </VerticalStackLayout>
+        </Frame>
+
+        <Button Grid.Row="4"
+                Grid.Column="0"
+                Margin="6,20,6,12"
+                Grid.ColumnSpan="1"
+                Text="Back to Wellness Results"
+                FontSize="14"
+                Padding="8"
+                FontAttributes="Bold"
+                VerticalOptions="End"
+                HeightRequest="55"
+                CornerRadius="26"
+                BackgroundColor="#1a237e"
+                x:Name="BtnRslts"
+                Clicked="BtnRslts_Clicked" />
+
+        <Button Grid.Row="4"
+                Grid.Column="1"
+                Margin="6,20,6,12"
+                Grid.ColumnSpan="1"
+                Text="Start Over"
+                FontSize="14"
+                Padding="8"
+                FontAttributes="Bold"
+                VerticalOptions="End"
+                HeightRequest="55"
+                CornerRadius="26"
+                BackgroundColor="#1a237e"
+                x:Name="BtnRestart"
+                Clicked="BtnRestart_Clicked" />
+
+    </Grid>
+    
+</ContentPage>

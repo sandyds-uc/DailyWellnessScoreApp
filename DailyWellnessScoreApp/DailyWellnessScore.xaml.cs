@@ -29,8 +29,9 @@ public partial class DailyWellnessScore : ContentPage
 
     }
 
-    private void Btn_Clicked(object sender, EventArgs e)
+    private async void Btn_Clicked(object sender, EventArgs e)
     {
+
         //double sleep = double.Parse(LblSleep.Text);
         //double stress = double.Parse(LblStress.Text);
         //double activity = double.Parse(LblActivity.Text);
@@ -67,16 +68,16 @@ public partial class DailyWellnessScore : ContentPage
             switch (status)
             {
                 case "Excellent":
-                    recommendation = "Maintain routine; include resistance training 2–3× per week; ensure protein intake across meals.";
+                    recommendation = "Maintain routine; include resistance training 2–3×/week; ensure protein intake across meals.";
                     break;
                 case "Good":
-                    recommendation = "Improve recovery with an earlier bedtime; add 15 min of light cardio or stretching; keep hydration steady.";
+                    recommendation = "Earlier bedtime for recovery; add 15 min light cardio/stretching; maintain hydration.";
                     break;
                 case "Fair":
-                    recommendation = "Aim for +1 hour of sleep; reduce caffeine after noon; schedule light mobility or an easy walk.";
+                    recommendation = "Aim for +1 hour sleep; reduce caffeine after noon; schedule light mobility/easy walk.";
                     break;
                 default:
-                    recommendation = "Rest today; avoid strenuous workouts; focus on hydration and 20–30 min of gentle walking.";
+                    recommendation = "Rest today; avoid strenuous workouts; hydrate and take 20–30 min gentle walk.";
                     break;
             }
         else
@@ -86,13 +87,13 @@ public partial class DailyWellnessScore : ContentPage
                     recommendation = "Keep strong habits; add yoga/pilates for recovery; prioritize calcium + vitamin D intake.";
                     break;
                 case "Good":
-                    recommendation = "Boost energy with a balanced breakfast; add 15 min of walking; focus on iron-rich foods if feeling low.";
+                    recommendation = "Balanced breakfast; add 15 min walking; focus on iron-rich foods if feeling low.";
                     break;
                 case "Fair":
-                    recommendation = "Increase sleep consistency; reduce evening screen time; include calming routines like meditation or journaling.";
+                    recommendation = "Improve sleep consistency; reduce evening screen time; add calming routines (meditation/journaling).";
                     break;
                 default:
-                    recommendation = "Prioritize rest and self-care; consider a short nap if possible; gentle yoga/stretching only.";
+                    recommendation = "Prioritize rest/self-care; short nap if possible; gentle yoga/stretching only.";
                     break;
             }
 
@@ -105,8 +106,10 @@ public partial class DailyWellnessScore : ContentPage
                              $"Recommendation:\n{recommendation}";
 
         //  DisplayAlert("Summary:", WellnessMsg, "Restart");
-        LblScore.Text = wellness.ToString("F0");
-        LblStatus.Text = status;
-        LblRecommendation.Text = recommendation;
+        // LblScore.Text = wellness.ToString("F0");
+        // LblStatus.Text = status;
+        // LblRecommendation.Text = recommendation;
+
+        await Navigation.PushAsync(new WellnessResult(choice, sleep, stress, activity, wellness, status, recommendation));
     }
 }
